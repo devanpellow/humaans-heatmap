@@ -1,10 +1,8 @@
-
 export default function Loading() {
   return (
-    <div>
-      <h3>Searching the globe...</h3>
-      <img className="loader-img" src="/assets/pleo-animate-pink.gif" alt="Loader"/>
-
+    <div className="loader">
+      <h2>Searching the globe...</h2>
+      <img src="/assets/pleo-animate-pink.gif" alt="Loader" />
     </div>
-  )
+  );
 }

@@ -10,19 +10,22 @@ body {
   padding: 0;
 }
 
-.App {
+.sticky-header {
   text-align: center;
+  background-color: rgb(252, 215, 219);
+  padding: 10px;
+}
+
+.sticky-header img {
+  height: 20px;
+  width: auto;
 }
 
 .map {
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   position: relative;
   margin: 0 auto;
-}
-
-.map div {
-  border-radius: 20px;
 }
 
 .location-marker {
@@ -32,7 +35,16 @@ body {
   cursor: pointer;
 }
 
-.loader-img {
+.loader {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.loader h2 {
+  margin: 10px 0;
+}
+
+.loader img {
   object-fit: cover;
   height: 250px;
   border-radius: 20px;

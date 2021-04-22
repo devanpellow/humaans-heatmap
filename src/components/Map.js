@@ -34,8 +34,8 @@ export default function GoogleMap({ employeesList, center, zoom }) {
 
 GoogleMap.defaultProps = {
   center: {
-    lat: 55.688035,
-    lng: 12.5609429,
+    lat: 36.7212,
+    lng: 4.4217,
   },
-  zoom: 6,
+  zoom: 1,
 };

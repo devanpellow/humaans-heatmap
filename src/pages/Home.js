@@ -9,10 +9,9 @@ export default function Home() {
 
   const [employeesList, setEmployeesList] = useState([]);
   const [remoteEmployeesList, setRemoteEmployeesList] = useState([]);
-  const [
-    remoteEmployeesListLatLong,
-    setRemoteEmployeesListLatLong,
-  ] = useState([]);
+  const [remoteEmployeesListLatLong, setRemoteEmployeesListLatLong] = useState(
+    []
+  );
   const [loading, setLoading] = useState(false);
 
   const fetchAllEmployees = async () => {
@@ -62,10 +61,10 @@ export default function Home() {
       throw new Error(message);
     }
     const { results } = await res.json();
-    const updatedEmployee = { ...employee, location: results } 
-    
+    const updatedEmployee = { ...employee, location: results };
+
     // console.log(updatedEmployee)
-    setRemoteEmployeesListLatLong(oldArray => [...oldArray, updatedEmployee]);
+    setRemoteEmployeesListLatLong((oldArray) => [...oldArray, updatedEmployee]);
     setLoading(false);
   };
 
@@ -81,7 +80,9 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Where are your colleagues?</h1>
+      <div className="sticky-header">
+        <h1>Where are your colleagues?</h1>
+      </div>
       <div>
         {!loading ? (
           <GoogleMap employeesList={remoteEmployeesListLatLong} />
