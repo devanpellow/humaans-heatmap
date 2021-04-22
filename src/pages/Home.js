@@ -63,7 +63,6 @@ export default function Home() {
     const { results } = await res.json();
     const updatedEmployee = { ...employee, location: results };
 
-    // console.log(updatedEmployee)
     setRemoteEmployeesListLatLong((oldArray) => [...oldArray, updatedEmployee]);
     setLoading(false);
   };
@@ -81,7 +80,8 @@ export default function Home() {
   return (
     <div>
       <div className="sticky-header">
-        <h1>Where are your colleagues?</h1>
+        <img src="/assets/pleo-animate.gif" alt="" />
+        <h1>Where are my coworkers?</h1>
       </div>
       <div>
         {!loading ? (

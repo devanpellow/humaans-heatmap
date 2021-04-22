@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import LocationMarker from './LocationMarker';
 import MarkerInfoBox from './MarkerInfoBox';
@@ -6,7 +6,7 @@ import MarkerInfoBox from './MarkerInfoBox';
 export default function GoogleMap({ employeesList, center, zoom }) {
   const googleMapsKey = process.env.REACT_APP_API_KEY_GOOGLE_MAPS;
   const [markerInfo, setMarkerInfo] = useState(null);
-
+  console.log(employeesList)
   return (
     <div className="map">
       <GoogleMapReact
@@ -20,7 +20,7 @@ export default function GoogleMap({ employeesList, center, zoom }) {
               key={marker.id}
               lat={marker.location[0].geometry.location.lat}
               lng={marker.location[0].geometry.location.lng}
-              src={marker.profilePhoto.variants[64]}
+              src={marker.profilePhoto !== null ? marker.profilePhoto.variants[64] : ''}
               onClick={() => setMarkerInfo(marker)}
             />
           ))}

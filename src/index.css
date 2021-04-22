@@ -11,14 +11,20 @@ body {
 }
 
 .sticky-header {
-  text-align: center;
+  display: flex;
   background-color: rgb(252, 215, 219);
   padding: 10px;
+  align-items: center;
+  text-align: center;
 }
 
 .sticky-header img {
-  height: 20px;
+  height: 100px;
   width: auto;
+  border-radius: 50%;
+}
+.sticky-header h1 {
+  margin: auto;
 }
 
 .map {
@@ -54,12 +60,20 @@ body {
   width: 400px;
   min-height: 200px;
   padding: 20px;
+  border-radius: 20px;
   position: absolute;
   top: 50px;
   right: 50px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+}
+
+.location-info .info {
+  margin: 0 5px;
 }
 
 .location-info img {
   border-radius: 50%;
+  height: 100px;
+  width: auto;
 }
