@@ -10,7 +10,18 @@ body {
   position: relative;
 }
 
+.map div {
+  border-radius: 20px;
+}
+
 .location-marker {
   width: 2vw;
-  height: 3vh;
+  height: 4vh;
+  border-radius: 4px;
+}
+
+.loader-img {
+  object-fit: cover;
+  height: 250px;
+  border-radius: 20px;
 }
