@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function LocationMarker({ onClick, src }) {
   return (
-    <div className="location-marker" onClick={onClick}>
+    <div className="" onClick={onClick}>
       <img className="location-marker" src={src} alt="pleo office" />
     </div>
   );

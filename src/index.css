@@ -10,14 +10,12 @@ body {
   padding: 0;
 }
 
-
 .App {
   text-align: center;
-  
 }
 
 .map {
-  width: 80vw;
+  width: 100vw;
   height: 80vh;
   position: relative;
   margin: 0 auto;
@@ -38,4 +36,18 @@ body {
   object-fit: cover;
   height: 250px;
   border-radius: 20px;
+}
+
+.location-info {
+  width: 400px;
+  min-height: 200px;
+  padding: 20px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.location-info img {
+  border-radius: 50%;
 }

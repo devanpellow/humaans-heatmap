@@ -17,7 +17,7 @@ export default function GoogleMap({ employeesList, center, zoom }) {
         {employeesList &&
           employeesList.map((marker) => (
             <LocationMarker
-            key={marker.id}
+              key={marker.id}
               lat={marker.location[0].geometry.location.lat}
               lng={marker.location[0].geometry.location.lng}
               src={marker.profilePhoto.variants[64]}
