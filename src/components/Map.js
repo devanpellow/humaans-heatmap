@@ -3,7 +3,12 @@ import GoogleMapReact from 'google-map-react'
 import LocationMarker from './LocationMarker'
 
 
-export default function Map({center, zoom}) {
+export default function Map({employeesList, center, zoom}) {
+
+
+  console.log(employeesList)
+
+
   return (
     <div className="map">
       <GoogleMapReact
