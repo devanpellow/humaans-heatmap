@@ -1,14 +1,13 @@
 import React from 'react';
 
-export default function LocationMarker({ lat, lng, onClick }) {
-
+export default function LocationMarker({ onClick, src }) {
   return (
     <div className="location-marker" onClick={onClick}>
-      <img
-        className="location-marker"
-        src="/assets/pleo-logo.jpeg"
-        alt="pleo office"
-      />
+      <img className="location-marker" src={src} alt="pleo office" />
     </div>
   );
 }
+
+LocationMarker.defaultProps = {
+  src: '/assets/pleo-logo.jpeg',
+};

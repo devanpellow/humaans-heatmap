@@ -1,35 +1,11 @@
 import { useState, useEffect } from 'react';
 import GoogleMapReact from 'google-map-react';
 import LocationMarker from './LocationMarker';
+import MarkerInfoBox from './MarkerInfoBox';
 
 export default function GoogleMap({ employeesList, center, zoom }) {
   const googleMapsKey = process.env.REACT_APP_API_KEY_GOOGLE_MAPS;
-
-  const [employeeListWithLatLng, setEmployeeListWithLatLng] = useState([]);
-
-  const fetchEmployeeLatLng = async (employee) => {
-    const res = await fetch(
-      'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-        employee.remoteCity +
-        employee.remoteCountry +
-        '&key=' +
-        googleMapsKey
-    );
-    const results = await res.json();
-    return results ;
-  };
-
-  const getEmployeesLocation = () => {
-    const employees = employeesList.map(employee => [{...employee, location: fetchEmployeeLatLng(employee)}]);
-
-    setEmployeeListWithLatLng(employees);
-  };
-
-  useEffect(() => {
-    getEmployeesLocation();
-  }, [employeesList]);
-
-  console.log(employeeListWithLatLng);
+  const [markerInfo, setMarkerInfo] = useState(null);
 
   return (
     <div className="map">
@@ -38,12 +14,20 @@ export default function GoogleMap({ employeesList, center, zoom }) {
         defaultCenter={center}
         defaultZoom={zoom}
       >
-        {/* {employeeListWithLatLng && 
-          employeeListWithLatLng.map(marker => <LocationMarker lat={marker} lng={marker}/>)
-        }  */}
+        {employeesList &&
+          employeesList.map((marker) => (
+            <LocationMarker
+            key={marker.id}
+              lat={marker.location[0].geometry.location.lat}
+              lng={marker.location[0].geometry.location.lng}
+              src={marker.profilePhoto.variants[64]}
+              onClick={() => setMarkerInfo(marker)}
+            />
+          ))}
 
         <LocationMarker lat={55.688035} lng={12.5609429} />
       </GoogleMapReact>
+      {markerInfo && <MarkerInfoBox info={markerInfo} />}
     </div>
   );
 }

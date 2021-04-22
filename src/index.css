@@ -28,9 +28,10 @@ body {
 }
 
 .location-marker {
-  width: 2vw;
+  width: auto;
   height: 4vh;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .loader-img {
