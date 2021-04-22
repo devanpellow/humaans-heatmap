@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Map from '../components/Map';
+import GoogleMap from '../components/Map';
 import Loading from '../components/Loading';
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
 
   const getRemoteEmployees = () => {
     const remoteEmployees = employeesList.filter(
-      (employee) => employee.remoteCity !== null
+      (employee) => employee.locationId === 'remote'
     );
     setRemoteEmployeesList(remoteEmployees);
   };
@@ -45,7 +45,7 @@ export default function Home() {
     <div>
       <h1>Where are your colleagues?</h1>
       <div>
-        {!loading ? <Map employeesList={remoteEmployeesList} /> : <Loading />}
+        {!loading ? <GoogleMap employeesList={remoteEmployeesList} /> : <Loading />}
       </div>
     </div>
   );
