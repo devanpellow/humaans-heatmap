@@ -18,7 +18,6 @@ export default function Home() {
     });
     const { data } = await res.json();
     setEmployeesList(data);
-    getRemoteEmployees()
     setLoading(false);
   };
 
@@ -35,6 +34,9 @@ export default function Home() {
     fetchAllEmployees();
   }, []);
 
+  useEffect(() => {
+    getRemoteEmployees();
+  }, [employeesList]);
 
   return (
     <div>
